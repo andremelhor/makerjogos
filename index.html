@@ -9,6 +9,7 @@
         // 1. Verifica se já existe uma preferência salva (para evitar loop)
         const userPref = localStorage.getItem('language_preference');
         
+        
         if (!userPref) {
             // 2. Obtém o idioma do navegador (ex: "pt-BR", "en-US")
             const browserLang = navigator.language || navigator.userLanguage;

@@ -601,8 +601,9 @@
 </div>
 
 <script>
-  // COUNTDOWN — Data fixa: 28 de junho de 2026
-  const launchDate = new Date('2026-06-28T00:00:00');
+  // COUNTDOWN — alvo: 60 dias a partir de hoje
+  const launchDate = new Date();
+  launchDate.setDate(launchDate.getDate() + 60);
 
   function updateCountdown() {
     const now = new Date();

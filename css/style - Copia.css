@@ -1,0 +1,424 @@
+/* 1. RESET E VARIÁVEIS (O padrão Doutor Gambiarra de organização) */
+:root {
+    --laranja-maker: #f37021;
+    --preto-hero: #1a1510;
+    --branco: #ffffff;
+    --cinza-claro: #f4f4f4;
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    line-height: 1.6;
+    background-color: var(--branco);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 2. HEADER FIXO */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--branco);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* 3. MENU DE NAVEGAÇÃO (Horizontal) */
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-list a:hover {
+    color: var(--laranja-maker);
+}
+
+/* 4. ÁREA HERO (Igual à sua imagem de referência) */
+
+.hero-section {
+    margin-top: 80px; /* Alinhado com a altura do header */
+    padding: 20px 0;   /* Reduzi o respiro para ficar mais próximo */
+}
+
+.hero-section .container {
+    background-color: var(--preto-hero);
+    border-radius: 30px;
+    padding: 80px;
+    display: flex;
+    align-items: center;
+    color: var(--branco);
+    min-height: 500px;
+}
+
+.hero-content { flex: 1; }
+.hero-image { flex: 1; text-align: right; }
+
+.hero-image img {
+    max-width: 300px;
+}
+
+.hero-tagline {
+    color: var(--laranja-maker);
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.hero-content h1 span {
+    color: var(--laranja-maker);
+}
+
+
+/* 5. LÓGICA DO DROPDOWN (Ocultar e Mostrar) */
+
+/* Esconde as listas de segundo e terceiro nível por padrão */
+.dropdown-menu, .submenu-list {
+    position: absolute;
+    background-color: var(--branco);
+    list-style: none;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    display: none; /* MÁGICA: Esconde tudo */
+    min-width: 200px;
+    z-index: 1001;
+}
+
+/* Posiciona o primeiro dropdown abaixo do item pai */
+.dropdown { position: relative; }
+.dropdown-menu {
+    top: 100%;
+    left: 0;
+}
+
+/* Posiciona o SUBMENU (Outros) para o LADO direito */
+.submenu { position: relative; }
+.submenu-list {
+    top: 0;
+    left: 100%; /* Abre para a direita */
+    margin-left: 1px;
+}
+
+/* MOSTRAR AO PASSAR O MOUSE (Desktop) */
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+.submenu:hover > .submenu-list {
+    display: block;
+}
+
+/* Estilo dos itens dentro do menu */
+.dropdown-menu li a, .submenu-list li a {
+    padding: 10px 20px;
+    display: block;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.dropdown-menu li a:hover, .submenu-list li a:hover {
+    background-color: #fff5f0; /* Um laranja bem clarinho no fundo */
+    color: var(--laranja-maker);
+}
+
+/* Ícone de seta (se você usou a classe icon-arrow) */
+.icon-arrow::after { content: ' ▼'; font-size: 0.7rem; }
+.icon-arrow-right::after { content: ' ▶'; font-size: 0.7rem; float: right; }
+
+
+
+/* 6. RESPONSIVIDADE (Mobile First) */
+
+@media (max-width: 768px) {
+    /* ... (mantenha o que já existe de nav-menu e mobile-toggle) ... */
+
+    /* AJUSTE NEWSLETTER MOBILE */
+    .newsletter-box {
+        padding: 40px 20px; /* Reduz o padding para não apertar no celular */
+        margin-bottom: 40px;
+    }
+
+    .news-form {
+        flex-direction: column; /* Empilha o input e o botão */
+        width: 100%;
+    }
+
+    .news-form input {
+        width: 100%; /* Input ocupa a largura toda */
+    }
+
+    /* AJUSTE FOOTER MOBILE */
+    .footer-columns {
+        grid-template-columns: 1fr; /* Transforma as 4 colunas em 1 só */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-social-pills {
+        flex-wrap: wrap; /* Permite que os botões (YouTube, etc) pulem de linha */
+        justify-content: center;
+    }
+
+    .pill {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+
+    .footer-legal {
+        flex-direction: column; /* Empilha o Copyright e os links de Termos */
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+    /* Esconde o menu de navegação por padrão no mobile */
+    .nav-menu {
+        position: absolute;
+        top: 80px; /* Logo abaixo do header */
+        left: -100%; /* Escondido à esquerda */
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--branco);
+        flex-direction: column;
+        transition: 0.4s;
+        overflow-y: auto;
+        display: flex;
+    }
+
+    /* Quando clicamos no hambúrguer, o menu entra na tela */
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+
+    .nav-list li {
+        width: 100%;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-list li a {
+        padding: 20px;
+        display: block;
+        width: 100%;
+    }
+
+    /* No Mobile, os Dropdowns ficam abertos ou expandem ao clicar */
+    .dropdown-menu, .submenu-list {
+        position: static; /* Volta para o fluxo normal da página */
+        display: block; /* Deixa visível para facilitar a navegação */
+        box-shadow: none;
+        background: #fdfdfd;
+        padding-left: 20px; /* Recuo para parecer subitem */
+    }
+
+    /* Mostra o Botão Hambúrguer */
+    .mobile-menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .mobile-menu-toggle .bar {
+        width: 30px;
+        height: 3px;
+        background-color: #333;
+        transition: 0.3s;
+    }
+
+    /* Ajuste do HERO para Celular */
+    .hero-section .container {
+        flex-direction: column; /* Empilha: Texto em cima, Imagem embaixo */
+        padding: 40px 20px;
+        text-align: center;
+        border-radius: 0; /* No celular, bordas retas costumam ocupar melhor o espaço */
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-image {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .hero-image img {
+        max-width: 200px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Esconde o botão hambúrguer no Desktop */
+@media (min-width: 769px) {
+    .mobile-menu-toggle {
+        display: none;
+    }
+}
+
+
+
+
+
+/* Ajuste para páginas sem a seção Hero */
+.content-wrapper {
+    padding-top: 110px; /* Espaço seguro abaixo do header */
+    padding-bottom: 40px; 
+}
+
+.page-header {
+    margin-bottom: 40px;
+    border-left: 5px solid var(--laranja-maker);
+    padding-left: 20px;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+
+/* NEWSLETTER BOX */
+.newsletter-box {
+    background-color:  rgb(240, 231, 231);
+    border-radius: 30px;
+    padding: 60px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    margin-bottom: 80px;
+}
+
+.news-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.news-form input {
+    background: #222;
+    border: 1px solid #333;
+    padding: 15px 25px;
+    border-radius: 50px;
+    color: white;
+    width: 300px;
+}
+
+.news-form button {
+    background: var(--laranja-maker);
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* FOOTER PREMIUM */
+.main-footer {
+    background-color:rgb(240, 231, 231);
+    color: #888;
+    padding: 80px 0 40px;
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.footer-nav h4 {
+    color: rgb(0, 0, 0);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.footer-nav ul { list-style: none; }
+.footer-nav li { margin-bottom: 10px; }
+.footer-nav a { color: #666; text-decoration: none; transition: 0.3s; }
+.footer-nav a:hover { color: white; }
+
+/* SOCIAL PILLS */
+.footer-social-pills {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #222;
+    margin-bottom: 30px;
+}
+
+.pill {
+    padding: 12px 30px;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.youtube { background: #ff0000; }
+.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.tiktok { background: #000000; border: 1px solid #333; }
+.discord { background: #5865F2; }
+
+.footer-legal {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+

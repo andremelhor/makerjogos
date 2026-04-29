@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Contato | Maker Jogos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="content-wrapper container" style="padding-top: 120px; padding-bottom: 80px;">
+        <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px;">
+            
+            <div class="contact-info">
+                <h1>Fale com o Maker Jogos </h1>
+                <p>Tem alguma dúvida técnica, problema com download ou sugestão de jogo? Estou aqui para ajudar.</p>
+                <div style="margin-top: 30px;">
+                    <h3>Suporte Rápido</h3>
+                    <p>📧 contatomakerjogos@gmail.com</p>
+                    <p>💬 Respostas em até 24h úteis</p>
+                </div>
+            </div>
+
+            <!-- <form class="contact-form" style="background: #f9f9f9; padding: 30px; border-radius: 15px;">
+                <div style="margin-bottom: 15px;">
+                    <label>Seu nome</label>
+                    <input type="text" style="width: 100%; padding: 10px; margin-top: 5px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>E-mail</label>
+                    <input type="email" style="width: 100%; padding: 10px; margin-top: 5px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label>Mensagem</label>
+                    <textarea style="width: 100%; padding: 10px; margin-top: 5px; height: 120px;"></textarea>
+                </div>
+                <button type="submit" style="background: var(--laranja-maker); color: white; border: none; padding: 15px 30px; border-radius: 8px; font-weight: bold; cursor: pointer;">Enviar Mensagem</button>
+            </form> -->
+
+<form action="https://api.web3forms.com/submit" method="POST" class="contact-form" style="background: #f9f9f9; padding: 30px; border-radius: 15px;">
+    
+    <input type="hidden" name="access_key" value="fda840e3-c1fd-4081-a1e1-ac150b089267">
+
+    <div style="margin-bottom: 15px;">
+        <label>Seu nome</label>
+        <input type="text" name="name" style="width: 100%; padding: 10px; margin-top: 5px;" required>
+    </div>
+    <div style="margin-bottom: 15px;">
+        <label>E-mail</label>
+        <input type="email" name="email" style="width: 100%; padding: 10px; margin-top: 5px;" required>
+    </div>
+    <div style="margin-bottom: 15px;">
+        <label>Mensagem</label>
+        <textarea name="message" style="width: 100%; padding: 10px; margin-top: 5px; height: 120px;" required></textarea>
+    </div>
+    <button type="submit" style="background: var(--laranja-maker); color: white; border: none; padding: 15px 30px; border-radius: 8px; font-weight: bold; cursor: pointer;">Enviar Mensagem</button>
+</form>
+
+
+
+
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/main.js"></script>
+</body>
+</html>

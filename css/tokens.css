@@ -1,0 +1,43 @@
+/* ==========================================================
+   tokens.css — paleta, tipografia e medidas do site.
+   Cores extraídas do logo da Maker Jogos.
+   Mudar aqui muda o site inteiro.
+   ========================================================== */
+:root {
+  /* Marca (medido no logo) */
+  --c-brand: #f15626;        /* laranja do logo: só para destaques grandes, ícones e fundos escuros */
+  --c-ink: #373a3f;          /* grafite do logo */
+
+  /* Laranja de AÇÃO: versão mais escura do laranja da marca.
+     O laranja puro tem contraste 3,4:1 com branco (abaixo do mínimo de 4,5:1
+     para texto). Este tem 5,0:1 e é o usado em botões e links. */
+  --c-primary: #c93f12;
+  --c-primary-dark: #a8330c;
+  --c-on-primary: #ffffff;
+
+  /* Laranja claro para texto pequeno sobre fundo escuro (contraste > 6:1) */
+  --c-brand-light: #ff7a4d;
+
+  /* Neutros */
+  --c-bg: #f5f6f7;
+  --c-surface: #ffffff;
+  --c-text: #2b2e33;
+  --c-muted: #5b616b;
+  --c-border: #dfe2e6;
+
+  /* Seções escuras */
+  --c-dark: #1f2226;
+  --c-header-bg: #ffffff;
+  --c-footer-bg: #25282d;
+  --c-footer-text: #d3d6db;
+
+  /* Tipografia: Montserrat (a do logo) nos títulos, fonte do sistema no texto */
+  --font-title: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+
+  /* Medidas */
+  --container: 1120px;
+  --header-h: 72px;
+  --radius: 12px;
+  --shadow: 0 6px 24px rgba(31, 34, 38, 0.12);
+}

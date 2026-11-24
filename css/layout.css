@@ -1,0 +1,29 @@
+/* layout.css — container, seções e grades */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.section { padding: 56px 0; }
+.section--alt { background: var(--c-surface); border-block: 1px solid var(--c-border); }
+.section-head { max-width: 640px; margin-bottom: 28px; }
+.section-head p { color: var(--c-muted); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  counter-reset: step;
+  padding: 0;
+  list-style: none;
+}
+
+#site-header { min-height: var(--header-h); }

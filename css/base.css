@@ -1,0 +1,44 @@
+/* base.css — reset e tipografia */
+
+/* Montserrat (SIL OFL), variável, só caracteres latinos (cobre o português) */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../assets/fonts/montserrat-latin-wght-normal.woff2') format('woff2');
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 12px); }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--c-text);
+  background: var(--c-bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+a, button { -webkit-tap-highlight-color: transparent; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 { font-family: var(--font-title); font-weight: 800; line-height: 1.2; margin: 0 0 0.6em; color: var(--c-ink); }
+h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
+h3 { font-size: 1.15rem; }
+p { margin: 0 0 1em; }
+
+a { color: var(--c-primary); }
+a:hover { color: var(--c-primary-dark); }
+
+:focus-visible { outline: 3px solid var(--c-primary); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}

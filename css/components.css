@@ -1,0 +1,151 @@
+/* components.css — header, dropdown, botões, cards, footer */
+
+/* ---------- Acessibilidade ---------- */
+.skip-link {
+  position: absolute; left: 8px; top: -60px; z-index: 200;
+  background: var(--c-text); color: #fff; padding: 8px 14px; border-radius: 8px;
+}
+.skip-link:focus { top: 8px; color: #fff; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--c-header-bg);
+  border-bottom: 1px solid var(--c-border);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: var(--header-h);
+}
+.brand { display: flex; align-items: center; text-decoration: none; }
+.brand-logo { height: 48px; width: auto; }
+
+.nav-list { display: flex; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.nav-item { position: relative; display: flex; align-items: center; }
+
+.nav-link {
+  display: block; padding: 10px 12px; border-radius: 8px;
+  color: var(--c-ink); text-decoration: none; font-weight: 700;
+}
+.nav-link:hover, .nav-link.is-active { color: var(--c-primary); background: rgba(0, 0, 0, 0.04); }
+
+/* Seta do dropdown */
+.sub-toggle {
+  width: 28px; height: 36px; margin-left: -6px; padding: 0;
+  border: 0; background: transparent; cursor: pointer; border-radius: 8px;
+}
+.sub-toggle::after {
+  content: ''; display: block; margin: 0 auto; width: 7px; height: 7px;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform 0.15s;
+}
+.has-sub.open > .sub-toggle::after { transform: rotate(225deg); }
+
+.submenu {
+  display: none; position: absolute; top: 100%; left: 0; z-index: 110;
+  min-width: 230px; margin: 0; padding: 6px; list-style: none;
+  background: var(--c-surface); border: 1px solid var(--c-border);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.submenu-link {
+  display: block; padding: 9px 12px; border-radius: 8px;
+  color: var(--c-text); text-decoration: none;
+}
+.submenu-link:hover { background: rgba(0, 0, 0, 0.05); color: var(--c-primary); }
+
+.has-sub.open > .submenu { display: block; }
+
+/* Desktop com mouse: abre no hover (e no foco por teclado) */
+@media (hover: hover) and (min-width: 900px) {
+  .has-sub:hover > .submenu,
+  .has-sub:focus-within > .submenu { display: block; }
+}
+
+/* Hambúrguer */
+.nav-toggle {
+  display: none; width: 44px; height: 44px; padding: 0;
+  border: 1px solid var(--c-border); border-radius: 10px;
+  background: var(--c-surface); cursor: pointer;
+}
+.nav-toggle span, .nav-toggle span::before, .nav-toggle span::after {
+  display: block; width: 20px; height: 2px; background: var(--c-text);
+  margin: 0 auto; position: relative; content: '';
+}
+.nav-toggle span::before { position: absolute; top: -6px; left: 0; }
+.nav-toggle span::after  { position: absolute; top: 6px;  left: 0; }
+
+/* Celular / tablet */
+@media (max-width: 899px) {
+  .nav-toggle { display: block; }
+  .site-nav {
+    display: none; position: absolute; top: var(--header-h); left: 0; right: 0;
+    background: var(--c-header-bg); border-bottom: 1px solid var(--c-border);
+    max-height: calc(100vh - var(--header-h)); overflow-y: auto;
+    box-shadow: var(--shadow);
+  }
+  .site-nav.open { display: block; }
+  .nav-list { flex-direction: column; gap: 0; padding: 8px 16px 16px; }
+  .nav-item { flex-wrap: wrap; border-bottom: 1px solid var(--c-border); }
+  .nav-link { flex: 1; padding: 14px 8px; }
+  .sub-toggle { width: 48px; height: 48px; margin: 0; }
+  .submenu {
+    position: static; width: 100%; min-width: 0;
+    border: 0; box-shadow: none; border-radius: 0;
+    margin: 0 0 8px 8px; padding: 0 0 0 8px;
+    border-left: 2px solid var(--c-border);
+  }
+  .submenu-link { padding: 12px 8px; }
+}
+
+/* ---------- Botões ---------- */
+.btn {
+  white-space: nowrap;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 11px 20px; border-radius: 999px; border: 2px solid transparent;
+  font: inherit; font-weight: 700; text-decoration: none; cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.btn--primary { background: var(--c-primary); color: var(--c-on-primary); }
+.btn--primary:hover { background: var(--c-primary-dark); color: var(--c-on-primary); }
+.btn--ghost { border-color: var(--c-border); color: var(--c-text); background: var(--c-surface); }
+.btn--ghost:hover { border-color: var(--c-primary); color: var(--c-primary); }
+.btn--lg { padding: 15px 30px; font-size: 1.1rem; }
+
+/* ---------- Cards de jogo ---------- */
+.card {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--c-surface); border: 1px solid var(--c-border);
+  border-radius: var(--radius); transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+.card-media { display: block; text-decoration: none; }
+.cover { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.cover--placeholder {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; font-weight: 800; color: var(--c-on-primary);
+  background: linear-gradient(135deg, var(--c-brand), var(--c-ink));
+}
+.card-body { display: flex; flex-direction: column; flex: 1; padding: 16px; }
+.card-title { margin-bottom: 6px; }
+.card-title a { color: var(--c-ink); text-decoration: none; }
+.card-title a:hover { color: var(--c-primary); }
+.card-text { color: var(--c-muted); font-size: 0.95rem; flex: 1; }
+.card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.card-actions .btn { flex: 1; padding-inline: 12px; }
+
+.price { margin: 0 0 12px; font-size: 1.25rem; }
+.price-old { color: var(--c-muted); font-size: 0.95rem; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--c-footer-bg); color: var(--c-footer-text); padding: 48px 0 24px; margin-top: 0; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; }
+.footer-logo { display: inline-block; padding: 8px 12px; margin-bottom: 12px; background: #fff; border-radius: 10px; }
+.footer-logo img { display: block; height: 52px; width: auto; }
+.footer-text { margin: 0; }
+.footer-title { font-size: 1rem; color: #fff; margin-bottom: 10px; }
+.footer-list { list-style: none; margin: 0; padding: 0; }
+.footer-list li { margin-bottom: 6px; }
+.site-footer a { color: var(--c-footer-text); text-decoration: none; }
+.site-footer a:hover { color: #fff; text-decoration: underline; }
+.footer-legal { margin: 32px 0 0; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.15); font-size: 0.875rem; }

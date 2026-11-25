@@ -18,8 +18,9 @@ MJ.menu = [
     href: 'como-funciona.html',
     children: [
       { label: 'O que é Print & Play', href: 'como-funciona.html#o-que-e-pnp' },
+      { label: 'Como comprar', href: 'como-funciona.html#como-comprar' },
       { label: 'Como imprimir', href: 'como-funciona.html#como-imprimir' },
-      { label: 'Como montar', href: 'como-funciona.html#como-montar' }
+      { label: 'Como montar e jogar', href: 'como-funciona.html#como-montar' }
     ]
   },
 

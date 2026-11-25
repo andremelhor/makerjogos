@@ -33,7 +33,10 @@
 
 /* ---------- Páginas de texto ---------- */
 .page-head { padding: 48px 0 8px; }
-.prose { max-width: 720px; }
+/* Colunas de texto alinhadas à esquerda do container, com linhas de leitura confortáveis */
+.container.prose { max-width: var(--container); }
+.prose > * { max-width: 720px; }
+.page-head + .section { padding-top: 24px; }
 .prose h2 { margin-top: 1.6em; }
 .prose ul, .prose ol { padding-left: 1.3em; }
 .prose li { margin-bottom: 0.4em; }
@@ -65,3 +68,24 @@
 @media (min-width: 800px) {
   .detail-grid { grid-template-columns: 1fr 1fr; align-items: start; }
 }
+
+/* ---------- Link abaixo dos passos (Home) ---------- */
+.steps-more { margin: 4px 0 0; font-weight: 700; }
+
+/* ---------- Páginas de texto: cabeçalho e navegação entre passos ---------- */
+.eyebrow--dark { color: var(--c-primary); }
+.lead--dark { color: var(--c-muted); }
+.next-step { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+
+/* ---------- Contato ---------- */
+.contact-grid { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.contact-card { display: block; padding: 16px; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); text-decoration: none; color: var(--c-text); transition: border-color 0.15s, box-shadow 0.15s; }
+.contact-card:hover { border-color: var(--c-primary); box-shadow: var(--shadow); }
+.contact-label { display: block; font-family: var(--font-title); font-weight: 800; color: var(--c-ink); }
+.contact-text { display: block; color: var(--c-primary); font-weight: 600; word-break: break-word; }
+
+.faq { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 10px; padding: 0 16px; margin-bottom: 10px; }
+.faq summary { cursor: pointer; font-weight: 700; padding: 14px 0; color: var(--c-ink); }
+.faq[open] summary { margin-bottom: 4px; }
+.prose .contact-grid { padding-left: 0; }
+.prose > h2:first-child { margin-top: 0; }

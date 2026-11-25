@@ -14,10 +14,11 @@ MJ.config = {
   locale: 'pt-BR',
   currency: 'BRL',
 
-  // Deixe a URL vazia ('') para esconder o item no rodapé.
-  email: '',
+  // Canais de contato. Deixe '' para esconder o item (rodapé e página Contato).
+  email: '',            // ex.: 'contato@makerjogos.com'
+  whatsapp: '',         // só números com DDI+DDD, ex.: '5571999999999'
   social: [
-    { label: 'YouTube', url: '' },
+    { label: 'YouTube', url: 'https://www.youtube.com/@makerjogos' },
     { label: 'Instagram', url: '' },
     { label: 'TikTok', url: '' }
   ]

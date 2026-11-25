@@ -19,6 +19,21 @@
     grid.innerHTML = list.length ? list.map(MJ.renderGameCard).join('') : '<p>Novos jogos em breve.</p>';
   }
 
+  /* Link para âncora que é um <details> (ex.: #reembolso): abre o item */
+  function openHashDetails() {
+    var el = window.location.hash ? document.getElementById(window.location.hash.slice(1)) : null;
+    if (el && el.tagName === 'DETAILS') {
+      el.open = true;
+      el.scrollIntoView();
+    }
+  }
+  openHashDetails();
+  window.addEventListener('hashchange', openHashDetails);
+
+  /* Página Contato */
+  var contact = document.getElementById('contact-channels');
+  if (contact && MJ.renderContact) MJ.renderContact(contact);
+
   /* Página de detalhe */
   var detail = document.getElementById('game-detail');
   if (detail) MJ.renderGameDetail(detail);

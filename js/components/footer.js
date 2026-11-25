@@ -16,12 +16,16 @@
       return '<li><a href="' + MJ.esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + MJ.esc(s.label) + '</a></li>';
     }).join('');
 
+    var whats = MJ.config.whatsapp
+      ? '<li><a href="https://wa.me/' + MJ.esc(String(MJ.config.whatsapp).replace(/\D/g, '')) + '" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>'
+      : '';
+
     var email = MJ.config.email
       ? '<li><a href="mailto:' + MJ.esc(MJ.config.email) + '">' + MJ.esc(MJ.config.email) + '</a></li>'
       : '';
 
-    var socialBlock = (social || email)
-      ? '<div><h2 class="footer-title">Fale com a gente</h2><ul class="footer-list">' + social + email + '</ul></div>'
+    var socialBlock = (social || email || whats)
+      ? '<div><h2 class="footer-title">Fale com a gente</h2><ul class="footer-list">' + social + whats + email + '</ul></div>'
       : '';
 
     host.innerHTML =

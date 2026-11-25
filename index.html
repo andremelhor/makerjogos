@@ -1,68 +1,59 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maker Jogos | Jogos de tabuleiro para imprimir e jogar</title>
-  <meta name="description" content="Jogos de tabuleiro em Print & Play: compre o arquivo, imprima em casa e jogue hoje mesmo.">
+  <title>Maker Jogos | Design. Build. Play. — Print &amp; Play Board Games</title>
+  <meta name="description" content="Independent tabletop game studio creating original Print &amp; Play (PnP) board games. Design. Build. Play.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Maker Jogos | Jogos de tabuleiro para imprimir e jogar">
-  <meta property="og:description" content="Compre o arquivo, imprima em casa e jogue hoje mesmo.">
-  <meta property="og:locale" content="pt_BR">
-  <link rel="icon" href="assets/img/ui/favicon-32.png" type="image/png" sizes="32x32">
-  <link rel="icon" href="assets/img/ui/icon-192.png" type="image/png" sizes="192x192">
-  <link rel="apple-touch-icon" href="assets/img/ui/apple-touch-icon.png">
-  <meta name="theme-color" content="#373a3f">
+  <meta property="og:title" content="Maker Jogos | Design. Build. Play.">
+  <meta property="og:description" content="Independent tabletop game studio creating original Print &amp; Play (PnP) board games.">
+  <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="Maker Jogos">
   <meta property="og:image" content="https://makerjogos.com/assets/img/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#373a3f">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="assets/img/ui/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/img/ui/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/img/ui/apple-touch-icon.png">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/pages.css">
 </head>
-<body data-root="">
+<body data-root="" data-page="home">
   <div id="site-header"></div>
 
   <main id="main">
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Jogos de tabuleiro Print &amp; Play</p>
-          <h1>Imprima, monte e jogue <span class="accent">hoje mesmo</span>.</h1>
-          <p class="lead">Você compra o arquivo, imprime em casa e monta o seu jogo. Sem frete e sem espera.</p>
+          <p class="eyebrow">Design. Build. Play.</p>
+          <h1>Original Print &amp; Play <span class="accent">board games</span>.</h1>
+          <p class="lead">Our international English catalog is currently in production. Downloadable PDF games and tabletop design tutorials are coming soon.</p>
           <div class="hero-actions">
-            <a class="btn btn--primary btn--lg" href="jogos/index.html">Ver os jogos</a>
-            <a class="btn btn--ghost btn--lg" href="como-funciona.html">Como funciona</a>
+            <a class="btn btn--primary btn--lg" href="br/index.html">Loja em Português (Brasil)</a>
+            <a class="btn btn--ghost btn--lg" href="https://www.youtube.com/@makerjogosglobal" target="_blank" rel="noopener noreferrer">YouTube Channel</a>
           </div>
         </div>
         <img class="hero-art" src="assets/img/hero-art.webp" width="632" height="470" fetchpriority="high"
-             alt="Tabuleiro de hexágonos com meeples, cartas e caderno de game design">
-      </div>
-    </section>
-
-    <section class="section section--alt">
-      <div class="container">
-        <div class="section-head">
-          <h2>Jogos em destaque</h2>
-          <p>Escolha um jogo e finalize a compra com segurança na Kiwify.</p>
-        </div>
-        <div id="games-grid" class="grid" data-destaque="true" data-limit="3"></div>
+             alt="Hex-tile board, cards, meeples and a game design notebook">
       </div>
     </section>
 
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Print & Play em 3 passos</h2>
+          <h2>Print &amp; Play in 3 steps</h2>
         </div>
         <ol class="steps">
-          <li class="step"><h3>Compre</h3><p>Pague na Kiwify e receba o acesso ao arquivo.</p></li>
-          <li class="step"><h3>Imprima</h3><p>Em casa ou em uma gráfica, em papel comum ou mais firme.</p></li>
-          <li class="step"><h3>Jogue</h3><p>Recorte, monte e reúna a mesa. O resto é diversão.</p></li>
+          <li class="step"><h3>Download</h3><p>Get the digital game files and rulebook instantly after release.</p></li>
+          <li class="step"><h3>Print</h3><p>Print at home or at a local print shop on standard or heavyweight paper.</p></li>
+          <li class="step"><h3>Play</h3><p>Cut, assemble your components, and gather around the table.</p></li>
         </ol>
-        <p class="steps-more"><a href="como-funciona.html">Ver o passo a passo completo →</a></p>
+        <p class="steps-more"><a href="how-it-works.html">See the full step-by-step →</a></p>
       </div>
     </section>
   </main>
@@ -71,6 +62,7 @@
 
   <script src="js/utils.js"></script>
   <script src="js/config.js"></script>
+  <script src="js/data/i18n.js"></script>
   <script src="js/data/menu.js"></script>
   <script src="js/data/games.js"></script>
   <script src="js/components/header.js"></script>

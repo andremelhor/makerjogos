@@ -1,5 +1,5 @@
 /* ==========================================================
-   contact.js — monta os canais de contato (página Contato)
+   contact.js — monta os canais de contato (página Contact/Contato)
    a partir de js/config.js. Canal vazio = não aparece.
    ========================================================== */
 (function () {
@@ -8,14 +8,20 @@
   MJ.contactChannels = function () {
     var list = [];
     var cfg = MJ.config;
+    var lang = MJ.lang();
+
     if (cfg.whatsapp) {
-      list.push({ label: 'WhatsApp', text: 'Chamar no WhatsApp', url: 'https://wa.me/' + String(cfg.whatsapp).replace(/\D/g, ''), external: true });
+      list.push({ label: 'WhatsApp', text: MJ.t('whatsappText'), url: 'https://wa.me/' + String(cfg.whatsapp).replace(/\D/g, ''), external: true });
     }
     if (cfg.email) {
       list.push({ label: 'E-mail', text: cfg.email, url: 'mailto:' + cfg.email, external: false });
     }
-    (cfg.social || []).forEach(function (s) {
-      if (s.url) list.push({ label: s.label, text: 'Abrir ' + s.label, url: s.url, external: true });
+
+    var rawSocial = cfg.social || [];
+    var socialList = Array.isArray(rawSocial) ? rawSocial : (rawSocial[lang] || rawSocial.en || []);
+
+    socialList.forEach(function (s) {
+      if (s.url) list.push({ label: s.label, text: MJ.t('openText', { x: s.label }), url: s.url, external: true });
     });
     return list;
   };
@@ -23,7 +29,7 @@
   MJ.renderContact = function (host) {
     var list = MJ.contactChannels();
     if (!list.length) {
-      host.innerHTML = '<p>Canais de contato em breve.</p>';
+      host.innerHTML = '<p>' + MJ.esc(MJ.t('noChannels')) + '</p>';
       return;
     }
     host.innerHTML = '<ul class="contact-grid">' + list.map(function (ch) {

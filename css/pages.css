@@ -56,6 +56,37 @@
 .fact dd { margin: 2px 0 0; font-weight: 700; }
 
 .detail-text { max-width: 720px; margin-top: 40px; }
+
+.detail-video { max-width: 720px; margin-top: 40px; }
+.detail-video h2 { margin-bottom: 14px; }
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--c-border);
+  background: var(--c-dark);
+  box-shadow: var(--shadow);
+}
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.video-cta .price { margin: 0; }
+
 .check-list { list-style: none; padding: 0; }
 .check-list li { position: relative; padding-left: 28px; margin-bottom: 8px; }
 .check-list li::before { content: '✓'; position: absolute; left: 0; color: var(--c-primary); font-weight: 800; }
@@ -89,3 +120,7 @@
 .faq[open] summary { margin-bottom: 4px; }
 .prose .contact-grid { padding-left: 0; }
 .prose > h2:first-child { margin-top: 0; }
+
+.card-video { margin: 0 0 12px; font-size: 0.9rem; font-weight: 700; }
+.card-video a { color: var(--c-primary); text-decoration: none; }
+.card-video a:hover { text-decoration: underline; }
